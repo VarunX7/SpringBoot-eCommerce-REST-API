@@ -23,9 +23,9 @@ public class CartItemService {
         return cartItemRepository.findById(id).orElse(null);
     }
 
-    // Get all CartItems
-    public List<CartItem> getAllCartItems() {
-        return cartItemRepository.findAll();
+    // Get all CartItems of a user
+    public List<CartItem> getAllCartItems(Long user) {
+        return cartItemRepository.findByUser(user);
     }
 
     // Update CartItem

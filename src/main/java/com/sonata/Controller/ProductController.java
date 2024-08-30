@@ -46,10 +46,8 @@ public class ProductController {
     // Get products by category
     @GetMapping("/category/{categoryId}")
     public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable Long categoryId) {
-        Category category = new Category(); 
-        category.setId(categoryId); // Set the category ID
-        
-        List<Product> products = productService.getProductsByCategory(category);
+
+        List<Product> products = productService.getProductsByCategory(categoryId);
         if (!products.isEmpty()) {
             return new ResponseEntity<>(products, HttpStatus.OK);
         } else {

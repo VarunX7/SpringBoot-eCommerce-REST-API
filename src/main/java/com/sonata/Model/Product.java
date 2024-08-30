@@ -14,9 +14,8 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
-    private Category category;
+    private Long categoryId;
     
     private String productName;
     private String description;
@@ -25,8 +24,8 @@ public class Product {
 
     public Product(){}
 
-    public Product(Category category, String productName, String description, double price, long stockQuantity) {
-        this.category = category;
+    public Product(Long categoryId, String productName, String description, double price, long stockQuantity) {
+        this.categoryId = categoryId;
         this.productName = productName;
         this.description = description;
         this.price = price;
@@ -38,11 +37,11 @@ public class Product {
     public void setId(Long id) {
         this.id = id;
     }
-    public Category getCategory() {
-        return category;
+    public Long getCategoryId() {
+        return categoryId;
     }
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategoryId(Long category) {
+        this.categoryId = category;
     }
     public String getProductName() {
         return productName;

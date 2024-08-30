@@ -36,9 +36,9 @@ public class CartItemController {
     }
 
     // Get all CartItems
-    @GetMapping
-    public ResponseEntity<List<CartItem>> getAllCartItems() {
-        List<CartItem> cartItems = cartItemService.getAllCartItems();
+    @GetMapping("/user/{user}")
+    public ResponseEntity<List<CartItem>> getAllCartItems(@PathVariable Long user) {
+        List<CartItem> cartItems = cartItemService.getAllCartItems(user);
         return new ResponseEntity<>(cartItems, HttpStatus.OK);
     }
 

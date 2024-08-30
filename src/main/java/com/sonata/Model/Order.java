@@ -16,9 +16,8 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private Long user;
 
     private LocalDateTime orderDate;
     private double totalAmount;
@@ -27,7 +26,7 @@ public class Order {
 
     public Order(){}
     
-    public Order(User user, LocalDateTime orderDate, double totalAmount, String orderStatus, String shippingAddress) {
+    public Order(Long user, LocalDateTime orderDate, double totalAmount, String orderStatus, String shippingAddress) {
         this.user = user;
         this.orderDate = orderDate;
         this.totalAmount = totalAmount;
@@ -42,10 +41,10 @@ public class Order {
     public void setId(Long id) {
         this.id = id;
     }
-    public User getUser() {
+    public Long getUser() {
         return user;
     }
-    public void setUser(User user) {
+    public void setUser(Long user) {
         this.user = user;
     }
     public LocalDateTime getOrderDate() {

@@ -62,7 +62,6 @@ public class UserController {
     // Authentication (Login)
     @PostMapping("/email")
     public ResponseEntity<User> AuthenticateUser(@RequestBody Map<String, String> credentials) {
-    	
     	String email = credentials.get("email");
     	String password = credentials.get("password");
     	

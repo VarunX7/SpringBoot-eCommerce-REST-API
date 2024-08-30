@@ -41,6 +41,18 @@ public class OrderController {
         List<Order> orders = orderService.getAllOrders();
         return new ResponseEntity<>(orders, HttpStatus.OK);
     }
+    
+    // Get all orders of a user
+    @GetMapping("/user/{user}")
+    public ResponseEntity<List<Order>> getOrdersByUser(@PathVariable Long user){
+    	List<Order> orders = orderService.getOrdersByUser(user);
+    	if(orders != null) {
+    		return new ResponseEntity<>(orders, HttpStatus.OK);
+    	}
+    	else {
+    		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    	}
+    }
 
     // Update an Order
     @PutMapping("/{id}")

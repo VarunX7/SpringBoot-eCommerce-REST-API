@@ -23,6 +23,10 @@ public class OrderItemService {
     public OrderItem getOrderItemById(Long id) {
         return orderItemRepository.findById(id).orElse(null);
     }
+    
+    public List<OrderItem> getOrderItemsByOrder(Long order){
+    	return orderItemRepository.findByOrder(order);
+    }
 
     // Get all OrderItems
     public List<OrderItem> getAllOrderItems() {

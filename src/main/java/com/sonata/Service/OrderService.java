@@ -23,6 +23,11 @@ public class OrderService {
     public Order getOrderById(Long id) {
         return orderRepository.findById(id).orElse(null);
     }
+    
+    // Get Order by user
+    public List<Order> getOrdersByUser(Long user) {
+    	return orderRepository.findOrdersByUser(user);
+    }
 
     // Get all Orders
     public List<Order> getAllOrders() {

@@ -31,8 +31,8 @@ public class ProductService {
     }
 
     // Get products by category
-    public List<Product> getProductsByCategory(Category category) {
-        return productRepository.findByCategory(category);
+    public List<Product> getProductsByCategory(Long category) {
+        return productRepository.findByCategoryId(category);
     }
 
     // Get Products by substring in their names
@@ -45,8 +45,8 @@ public class ProductService {
         Product existingProduct = productRepository.findById(id).orElse(null);
         if (existingProduct != null) {
         	
-        	if(updatedProduct.getCategory() != null) {
-        		existingProduct.setCategory(updatedProduct.getCategory());        		
+        	if(updatedProduct.getCategoryId() != null) {
+        		existingProduct.setCategoryId(updatedProduct.getCategoryId());        		
         	}
         	if(updatedProduct.getProductName() != null) {
         		existingProduct.setProductName(updatedProduct.getProductName());

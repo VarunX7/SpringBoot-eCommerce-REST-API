@@ -20,11 +20,11 @@ public class CartItem {
     @JoinColumn(name = "product_id", nullable = false)
     private Long product;
 
-    private int quantity;
+    private Long quantity;
     
     public CartItem(){}
 
-    public CartItem(Long user, Long product, int quantity) {
+    public CartItem(Long user, Long product, Long quantity) {
         this.user = user;
         this.product = product;
         this.quantity = quantity;
@@ -54,11 +54,11 @@ public class CartItem {
         this.product = product;
     }
 
-    public int getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
     

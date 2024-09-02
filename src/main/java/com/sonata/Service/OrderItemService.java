@@ -24,8 +24,8 @@ public class OrderItemService {
         return orderItemRepository.findById(id).orElse(null);
     }
     
-    public List<OrderItem> getOrderItemsByOrder(Long order){
-    	return orderItemRepository.findByOrder(order);
+    public List<OrderItem> getOrderItemsByOrder(Long orderNo){
+    	return orderItemRepository.findByOrderNo(orderNo);
     }
 
     // Get all OrderItems

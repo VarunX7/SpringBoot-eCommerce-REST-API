@@ -1,4 +1,5 @@
 package com.sonata.Model;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
@@ -7,9 +8,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 
 @Entity
+@Table(name = "orders")
 public class Order {
     
     @Id
@@ -19,14 +22,14 @@ public class Order {
     @JoinColumn(name = "user_id", nullable = false)
     private Long user;
 
-    private LocalDateTime orderDate;
+    private LocalDate orderDate;
     private double totalAmount;
     private String orderStatus;
     private String shippingAddress;
 
     public Order(){}
     
-    public Order(Long user, LocalDateTime orderDate, double totalAmount, String orderStatus, String shippingAddress) {
+    public Order(Long user, LocalDate orderDate, double totalAmount, String orderStatus, String shippingAddress) {
         this.user = user;
         this.orderDate = orderDate;
         this.totalAmount = totalAmount;
@@ -47,10 +50,10 @@ public class Order {
     public void setUser(Long user) {
         this.user = user;
     }
-    public LocalDateTime getOrderDate() {
+    public LocalDate getOrderDate() {
         return orderDate;
     }
-    public void setOrderDate(LocalDateTime orderDate) {
+    public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
     }
     public double getTotalAmount() {

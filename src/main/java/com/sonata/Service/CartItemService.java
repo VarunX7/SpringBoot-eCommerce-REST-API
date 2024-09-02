@@ -29,7 +29,7 @@ public class CartItemService {
     }
 
     // Update CartItem
-    public CartItem updateCartItem(Long id, int newQuantity) {
+    public CartItem updateCartItem(Long id, Long newQuantity) {
         CartItem existingCartItem = cartItemRepository.findById(id).orElse(null);
         if (existingCartItem != null) {
             existingCartItem.setQuantity(newQuantity);

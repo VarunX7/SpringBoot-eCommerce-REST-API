@@ -44,7 +44,7 @@ public class CartItemController {
 
     // Update a CartItem Quantity
     @PutMapping("/{id}")
-    public ResponseEntity<CartItem> updateCartItem(@PathVariable Long id, @RequestBody int newQuantity) {
+    public ResponseEntity<CartItem> updateCartItem(@PathVariable Long id, @RequestBody Long newQuantity) {
         CartItem cartItem = cartItemService.updateCartItem(id, newQuantity);
         if (cartItem != null) {
             return new ResponseEntity<>(cartItem, HttpStatus.OK);

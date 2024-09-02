@@ -36,9 +36,9 @@ public class OrderItemController {
     }
     
     //Get OrderItems by Order Id...
-    @GetMapping("/order/{order}")
-    public ResponseEntity<List<OrderItem>> getOrderItemsByOrderId(@PathVariable Long order){
-    	List<OrderItem> orderItems = orderItemService.getOrderItemsByOrder(order);
+    @GetMapping("/order/{orderNo}")
+    public ResponseEntity<List<OrderItem>> getOrderItemsByOrderId(@PathVariable Long orderNo){
+    	List<OrderItem> orderItems = orderItemService.getOrderItemsByOrder(orderNo);
     	if(orderItems != null) {
     		return new ResponseEntity<>(orderItems, HttpStatus.OK);
         } else {

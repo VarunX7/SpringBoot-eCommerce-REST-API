@@ -54,7 +54,7 @@ public class OrderController {
     	}
     }
 
-    // Update an Order
+    // Update an Order (only order status)
     @PutMapping("/{id}")
     public ResponseEntity<Order> updateOrder(@PathVariable Long id, @RequestBody Order updatedOrder) {
         Order order = orderService.updateOrder(id, updatedOrder);

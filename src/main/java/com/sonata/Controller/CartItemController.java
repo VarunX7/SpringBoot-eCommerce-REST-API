@@ -23,6 +23,13 @@ public class CartItemController {
         CartItem createdCartItem = cartItemService.saveCartItem(cartItem);
         return new ResponseEntity<>(createdCartItem, HttpStatus.CREATED);
     }
+    
+    // Create Multiple CartItems
+    @PostMapping("/createMultiple")
+    public ResponseEntity<List<CartItem>> createMultipleCartItems(@RequestBody List<CartItem> cartItems){
+    	List<CartItem> createdCartItems = cartItemService.saveMultipleCartItems(cartItems);
+    	return new ResponseEntity<>(createdCartItems, HttpStatus.CREATED);
+    }
 
     // Get a CartItem by ID
     @GetMapping("/{id}")

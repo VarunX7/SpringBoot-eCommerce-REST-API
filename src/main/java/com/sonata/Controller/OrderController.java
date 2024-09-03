@@ -23,6 +23,13 @@ public class OrderController {
         Order createdOrder = orderService.saveOrder(order);
         return new ResponseEntity<>(createdOrder, HttpStatus.CREATED);
     }
+    
+    // Create multiple orders
+    @PostMapping("/createMultiple")
+    public ResponseEntity<List<Order>> createMultipleOrders(@RequestBody List<Order> orders){
+    	List<Order> savedOrders = orderService.saveMultipleOrders(orders);
+    	return new ResponseEntity<>(savedOrders, HttpStatus.CREATED);
+    }
 
     // Get an Order by ID
     @GetMapping("/{id}")

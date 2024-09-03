@@ -23,6 +23,14 @@ public class OrderItemController {
         OrderItem createdOrderItem = orderItemService.saveOrderItem(orderItem);
         return new ResponseEntity<>(createdOrderItem, HttpStatus.CREATED);
     }
+    
+    // Create Multiple orderItems
+    @PostMapping("/createMultiple")
+    public ResponseEntity<List<OrderItem>> createMultipleOrderItems(@RequestBody List<OrderItem> orderItems){
+    	List<OrderItem> savedOrderItems = orderItemService.saveMultipleOrderItems(orderItems);
+    	return new ResponseEntity<>(savedOrderItems, HttpStatus.CREATED);
+    }
+    
 
     // Get an OrderItem by ID
     @GetMapping("/{id}")

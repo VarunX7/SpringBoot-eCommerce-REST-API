@@ -27,6 +27,16 @@ public class UserController {
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
     
+    // Create Multiple users
+    @PostMapping("/createMultiple")
+    public ResponseEntity<List<User>> createMultipleUsers(@RequestBody List<User> users){
+    	List<User> createdUsers = userService.saveMultipleUsers(users);
+    	if(createdUsers == null) {
+    		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    	}
+    	return new ResponseEntity<>(createdUsers, HttpStatus.CREATED);
+    }
+    
     //Get all users
     @GetMapping("/all")
     public ResponseEntity<List<User>> getAllUsers(){

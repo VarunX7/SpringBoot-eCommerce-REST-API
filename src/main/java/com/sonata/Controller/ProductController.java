@@ -22,7 +22,20 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         Product createdProduct = productService.saveProduct(product);
+        if(createdProduct == null) {
+    		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    	}
         return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
+    }
+    
+    // Create multiple products
+    @PostMapping("/createMultiple")
+    public ResponseEntity<List<Product>> createMultipleProducts(@RequestBody List<Product> products){
+    	List<Product> savedProducts = productService.saveMultipleProducts(products);
+    	if(savedProducts == null) {
+    		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    	}
+    	return new ResponseEntity<>(savedProducts, HttpStatus.CREATED); 
     }
 
     // Get product by ID

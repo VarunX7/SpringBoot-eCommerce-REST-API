@@ -18,7 +18,12 @@ public class CategoryService {
     public Category saveCategory(Category category) {
         return categoryRepository.save(category);
     }
-
+    
+    // Create multiple Categories
+    public List<Category> saveMultipleCategories(List<Category> categories){
+    	return categoryRepository.saveAll(categories);
+    }
+    
     // Get Category by ID
     public Category getCategoryById(Long id) {
         return categoryRepository.findById(id).orElse(null);

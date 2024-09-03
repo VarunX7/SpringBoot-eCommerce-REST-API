@@ -18,6 +18,11 @@ public class OrderService {
     public Order saveOrder(Order order) {
         return orderRepository.save(order);
     }
+    
+    // Create multiple orders
+    public List<Order> saveMultipleOrders(List<Order> orders){
+    	return orderRepository.saveAll(orders);
+    }
 
     // Get Order by ID
     public Order getOrderById(Long id) {

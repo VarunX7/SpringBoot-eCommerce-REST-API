@@ -19,6 +19,11 @@ public class UserService {
     public User saveUser(User user) {
         return userRepo.save(user);
     }
+    
+    //Create multiple users
+    public List<User> saveMultipleUsers(List<User> users){
+    	return userRepo.saveAll(users);
+    }
 
     // Get user by ID
     public User getUserById(Long id) {

@@ -1,22 +1,49 @@
 package com.sonata.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sonata.Model.OrderItem;
+import com.sonata.Model.Product;
 import com.sonata.Repository.OrderItemRepository;
+import com.sonata.Repository.ProductRepository;
 
 @Service
 public class OrderItemService {
 
     @Autowired
     private OrderItemRepository orderItemRepository;
+    private ProductRepository productRepo;
 
     // Create OrderItem
     public OrderItem saveOrderItem(OrderItem orderItem) {
-        return orderItemRepository.save(orderItem);
+    	
+    	Product product = productRepo.findById(orderItem.getProduct()).orElse(null);
+    	
+    	if(product != null) {
+    		if(product.getStockQuantity() < orderItem.getQuantity() && product.getStockQuantity() < 10) {
+    			orderItem.setQuantity(product.getStockQuantity());
+    		}
+    		else if(orderItem.getQuantity() > 10) {
+    			orderItem.setQuantity((long)10);
+    		}
+    		orderItem.setTotalPrice(product.getPrice() * orderItem.getQuantity());
+    		product.setStockQuantity(product.getStockQuantity() - orderItem.getQuantity());
+    		productRepo.save(product);
+    		return orderItemRepository.save(orderItem);
+    	}
+    	return null;
+    }
+    
+    // Create multiple orderItems
+    public List<OrderItem> saveMultipleOrderItems(List<OrderItem> orderItems){
+    	List<OrderItem> orderItemsUpdated = orderItems.stream()
+    			.map(this::saveOrderItem)
+    			.collect(Collectors.toList());
+    	return orderItemsUpdated;
     }
 
     // Get OrderItem by ID

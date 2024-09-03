@@ -23,6 +23,14 @@ public class CategoryController {
         Category createdCategory = categoryService.saveCategory(category);
         return new ResponseEntity<>(createdCategory, HttpStatus.CREATED);
     }
+    
+    // Create Multiple Categories
+    @PostMapping("/createMultiple")
+    public ResponseEntity<List<Category>> createMultipleCategories(@RequestBody List<Category> categories){
+    	List<Category> savedCategories = categoryService.saveMultipleCategories(categories);
+    	return new ResponseEntity<>(savedCategories, HttpStatus.CREATED);
+    }
+    
 
     // Get a Category by ID
     @GetMapping("/{id}")

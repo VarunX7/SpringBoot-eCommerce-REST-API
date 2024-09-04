@@ -16,6 +16,8 @@ public class OrderItemService {
 
     @Autowired
     private OrderItemRepository orderItemRepository;
+    
+    @Autowired
     private ProductRepository productRepo;
 
     // Create OrderItem

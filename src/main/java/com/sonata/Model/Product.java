@@ -21,11 +21,19 @@ public class Product {
     private String description;
     private Double price;
     private Long stockQuantity;
-//    Rating implement
+    private Double rating;
 
-    public Product(){}
+    public Double getRating() {
+		return rating;
+	}
 
-    public Product(Long categoryId, String productName, String description, double price, long stockQuantity) {
+	public void setRating(Double rating) {
+		this.rating = rating;
+	}
+
+	public Product(){}
+
+    public Product(Long categoryId, String productName, String description, Double price, Long stockQuantity) {
         this.categoryId = categoryId;
         this.productName = productName;
         this.description = description;

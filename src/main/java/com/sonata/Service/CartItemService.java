@@ -14,6 +14,7 @@ public class CartItemService {
 
     @Autowired
     private CartItemRepository cartItemRepository;
+    @Autowired
     private ProductRepository productRepo;
 
     // Create CartItem

@@ -16,20 +16,13 @@ public class Product {
 
     @JoinColumn(name = "category_id", nullable = false)
     private Long categoryId;
-    
     private String productName;
     private String description;
-    private Double price;
+    private String imageUrl;
+	private Double price;
     private Long stockQuantity;
     private Double rating;
 
-    public Double getRating() {
-		return rating;
-	}
-
-	public void setRating(Double rating) {
-		this.rating = rating;
-	}
 
 	public Product(){}
 
@@ -40,6 +33,23 @@ public class Product {
         this.price = price;
         this.stockQuantity = stockQuantity;
     }
+    
+    public String getImageUrl() {
+    	return imageUrl;
+    }
+    
+    public void setImageUrl(String imageUrl) {
+    	this.imageUrl = imageUrl;
+    }
+    
+    public Double getRating() {
+    	return rating;
+    }
+    
+    public void setRating(Double rating) {
+    	this.rating = rating;
+    }
+    
     public Long getId() {
         return id;
     }

@@ -65,6 +65,9 @@ public class ProductService {
         	if(updatedProduct.getStockQuantity() != null) {
         		existingProduct.setStockQuantity(updatedProduct.getStockQuantity());
         	}
+        	if(updatedProduct.getRating() != null) {
+        		existingProduct.setRating(updatedProduct.getRating());
+        	}
             return productRepository.save(existingProduct);
         }
         return null;

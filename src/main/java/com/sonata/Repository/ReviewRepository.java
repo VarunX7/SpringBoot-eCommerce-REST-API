@@ -13,7 +13,7 @@ import com.sonata.Model.Review;
 public interface ReviewRepository extends JpaRepository<Review, Long>{
 	List<Review> findByUser(Long user);
 	List<Review> findByProduct(Long productId);
-//    Double findAverageRatingByProduct(Long productId);
+	
 	@Query("SELECT AVG(r.rating) FROM Review r WHERE r.product = :productId")
     Double findAverageRatingByProduct(@Param("productId") Long productId);
 }

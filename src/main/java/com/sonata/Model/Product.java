@@ -26,12 +26,13 @@ public class Product {
 
 	public Product(){}
 
-    public Product(Long categoryId, String productName, String description, Double price, Long stockQuantity) {
+    public Product(Long categoryId, String productName, String description, Double price, Long stockQuantity, Double rating) {
         this.categoryId = categoryId;
         this.productName = productName;
         this.description = description;
         this.price = price;
         this.stockQuantity = stockQuantity;
+        this.rating = rating;
     }
     
     public String getImageUrl() {

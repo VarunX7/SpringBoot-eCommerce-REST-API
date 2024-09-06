@@ -73,15 +73,6 @@ public class ProductService {
         return null;
     }
     
-//     public Product addRating(Long id, Double rating) {
-//    	 if(rating < 5 || rating > 1) {
-//    		 Product product = productRepository.findById(id).orElse(null);
-//    		 if(product != null) {
-//    			 product.setRating();
-//    		 }
-//    	 }
-//    	 
-//     }
 
     // Delete a product by ID
     public void deleteProduct(Long id) {
